@@ -243,6 +243,16 @@ class _RoutineStartPageState extends State<RoutineStartPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
+              '${_selWorkout.setData.length}',
+              style: kSetDataTextStyle.copyWith(fontSize: 24),
+            ),
+            Text(' Set'),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
               type == WorkoutType.setWeight
                   ? '${_workoutSet.repCount}'
                   : timeStatus == setTime
