@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "768604335788-a16g9h7oh1thg84qvkv4l6urqn6k607t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stufeed.hr_app",
+            "certificate_hash": "6e2186d4ac1575539e70fe09d2243b3bb6dba0e5"
+          }
+        },
+        {
+          "client_id": "768604335788-gbctltngd6p8vnu76q2sjcnj12c92ka4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stufeed.hr_app",
+            "certificate_hash": "ecce35b5ba8d34b1a280ca9895b1fef15f1c21e7"
+          }
+        },
+        {
           "client_id": "768604335788-u9ed4m3g7o4q00m9c0t9b315f77t1ij5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
