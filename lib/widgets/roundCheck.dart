@@ -26,7 +26,7 @@ class _RoundCheckState extends State<RoundCheck> {
   @override
   Widget build(BuildContext context) {
     return RoundCheckBox(
-      isChecked: widget.isModify,
+      isChecked: widget.isModify,f
       uncheckedWidget: Center(
         child: Text(
           '${widget.day.day}',
