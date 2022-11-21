@@ -12,10 +12,12 @@ class RoundCheck extends StatefulWidget {
     this.onTap,
     this.isModify = false,
   });
+
   final Day day;
   final List<Day> selectedDays;
   final Function onTap;
   bool isModify;
+
   @override
   _RoundCheckState createState() => _RoundCheckState();
 }
@@ -40,6 +42,7 @@ class _RoundCheckState extends State<RoundCheck> {
             isChecked
                 ? widget.selectedDays.add(widget.day)
                 : widget.selectedDays.remove(widget.day);
+            print(widget.selectedDays);
           },
         );
       },
