@@ -54,8 +54,8 @@ class _RoutineStartPageState extends State<RoutineStartPage> {
   CountDownController _countDownController = CountDownController();
 
   playLocal() async {
-    final player = AudioCache();
-    await player.play('sound/boop.wav');
+    final player = AudioPlayer();
+    await player.play(UrlSource('sound/boop.wav'));
   }
 
   changeWorkout() {
