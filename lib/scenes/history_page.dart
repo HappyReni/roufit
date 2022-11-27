@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:hr_app/data/constants.dart';
 import 'package:hr_app/models/log_model.dart';
 import 'package:hr_app/models/workout_model.dart';
 import 'package:hr_app/provider/log_provider.dart';
+import 'package:hr_app/scenes/routine/routine_history_page.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:hr_app/provider/user_provider.dart';
@@ -31,13 +33,14 @@ class _MyPageState extends State<MyPage> {
   int workoutTime;
   int workoutWeight;
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
-    print(selectedDay);
-    if (!isSameDay(_selectedDay, selectedDay)) {
-      setState(() {
-        _selectedDay = selectedDay;
-        _focusedDay = focusedDay;
-      });
-    }
+    String date = DateFormat('yyyy-MM-dd').format(selectedDay);
+    Navigator.pushNamed(context, 'Routine_history_page', arguments: HistoryParameter(date:date));
+    // if (!isSameDay(_selectedDay, selectedDay)) {
+    //   setState(() {
+    //     _selectedDay = selectedDay;
+    //     _focusedDay = focusedDay;
+    //   });
+    // }
   }
 
   int getHashCode(DateTime key) {
@@ -86,7 +89,7 @@ class _MyPageState extends State<MyPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Statistics', style: kPageTitleStyle),
+                Text('History', style: kPageTitleStyle),
                 IconButton(
                   icon: Icon(Icons.settings),
                   iconSize: 40.0,
@@ -107,73 +110,73 @@ class _MyPageState extends State<MyPage> {
               ],
             ),
             kSizedBoxBetweenItems,
-            Text('이번 주 활동', style: kPageSubTitleStyle),
-            kSizedBoxBetweenItems,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("$workoutCount", style: kSetDataTextStyle),
-                            Text(
-                              "번",
-                            ),
-                          ],
-                        ),
-                        Text("운동을 했어요"),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("$workoutTime", style: kSetDataTextStyle),
-                            Text(
-                              "초",
-                            ),
-                          ],
-                        ),
-                        Text("동안 운동했어요"),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("$workoutWeight", style: kSetDataTextStyle),
-                            Text(
-                              "KG",
-                            ),
-                          ],
-                        ),
-                        Text("이나 들었어요"),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Text('이번 주 활동', style: kPageSubTitleStyle),
+            // kSizedBoxBetweenItems,
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Expanded(
+            //       flex: 1,
+            //       child: Container(
+            //         child: Column(
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             Row(
+            //               mainAxisAlignment: MainAxisAlignment.center,
+            //               children: [
+            //                 Text("$workoutCount", style: kSetDataTextStyle),
+            //                 Text(
+            //                   "번",
+            //                 ),
+            //               ],
+            //             ),
+            //             Text("운동을 했어요"),
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 1,
+            //       child: Container(
+            //         child: Column(
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             Row(
+            //               mainAxisAlignment: MainAxisAlignment.center,
+            //               children: [
+            //                 Text("$workoutTime", style: kSetDataTextStyle),
+            //                 Text(
+            //                   "초",
+            //                 ),
+            //               ],
+            //             ),
+            //             Text("동안 운동했어요"),
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 1,
+            //       child: Container(
+            //         child: Column(
+            //           mainAxisAlignment: MainAxisAlignment.center,
+            //           children: [
+            //             Row(
+            //               mainAxisAlignment: MainAxisAlignment.center,
+            //               children: [
+            //                 Text("$workoutWeight", style: kSetDataTextStyle),
+            //                 Text(
+            //                   "KG",
+            //                 ),
+            //               ],
+            //             ),
+            //             Text("이나 들었어요"),
+            //           ],
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             kSizedBoxBetweenItems,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

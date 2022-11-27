@@ -73,7 +73,6 @@ class UserProvider with ChangeNotifier {
     } else {
       _initHive();
     }
-
     // notifyListeners();
     return routineHistory;
   }

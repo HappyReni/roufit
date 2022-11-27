@@ -12,7 +12,7 @@ import 'package:hr_app/scenes/Firebase_Init.dart';
 import 'package:hr_app/scenes/log_in_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:hr_app/scenes/home_page.dart';
-import 'package:hr_app/scenes/statistics_page.dart';
+import 'package:hr_app/scenes/history_page.dart';
 import 'package:hr_app/scenes/profile_page.dart';
 import 'package:hr_app/scenes/routine/routine_finish_page.dart';
 import 'package:hr_app/scenes/routine/routine_history_page.dart';
@@ -139,7 +139,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                   ),
                   Tab(
                     icon: FaIcon(FontAwesomeIcons.chartLine),
-                    text: 'Statistics',
+                    text: 'History',
                   )
                 ],
               ),

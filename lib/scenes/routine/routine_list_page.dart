@@ -36,7 +36,7 @@ class _RoutineListPageState extends State<RoutineListPage> {
     List<RoutineModel> _routineList =
         Provider.of<RoutineProvider>(context).routineModels;
 
-    if (_routineList.isNotEmpty) isRoutine = true;
+    _routineList.isNotEmpty ? isRoutine = true : isRoutine = false;
     setState(() {});
 
     super.didChangeDependencies();

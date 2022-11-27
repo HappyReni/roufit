@@ -8,6 +8,13 @@ import 'package:hr_app/models/routine_model.dart';
 
 import 'package:provider/provider.dart';
 
+class HistoryParameter{
+  final String date;
+
+  @required
+  HistoryParameter({this.date});
+}
+
 class RoutineHistoryPage extends StatefulWidget {
   @override
   _RoutineHistoryPageState createState() => _RoutineHistoryPageState();
@@ -40,6 +47,8 @@ class _RoutineHistoryPageState extends State<RoutineHistoryPage> {
     init();
     var routineHistory =
         Provider.of<UserProvider>(context, listen: false).getHistory();
+    final args = ModalRoute.of(context).settings.arguments as HistoryParameter;
+    print('dd : ${routineHistory[args.date].runtimeType}');
     return SafeArea(
       child: Material(
         child: Padding(
@@ -57,7 +66,7 @@ class _RoutineHistoryPageState extends State<RoutineHistoryPage> {
                     ],
                   ),
                   kSizedBoxBetweenItems,
-                  routineHistory.keys.length == 0
+                  !routineHistory.keys.contains(args.date)
                       ? Expanded(
                           flex: 2, child: Center(child: Text('루틴 기록이 없습니다')))
                       : Expanded(
@@ -66,11 +75,11 @@ class _RoutineHistoryPageState extends State<RoutineHistoryPage> {
                           child: ListView.builder(
                             controller: _scrollController,
                             shrinkWrap: true,
-                            itemCount: routineHistory.keys.length,
+                            itemCount: 1,
                             itemBuilder: (context, index) {
-                              int length = routineHistory.keys.length;
-                              String key = routineHistory.keys
-                                  .elementAt(length - 1 - index);
+                              // String key = routineHistory.keys
+                              //     .elementAt(length - 1 - index);
+                              String key = args.date;
                               String date = key.split('-')[0] +
                                   "년 " +
                                   key.split('-')[1] +
